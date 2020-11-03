@@ -4,7 +4,7 @@
 typedef enum{false,true} boolean;
 struct stack{
     int top;
-    char entry[max]
+    int entry[max]
 }s;
 void createStack(struct stack *s){
     s->top = -1;
@@ -17,17 +17,17 @@ boolean IsStackFull(struct stack* s){
     return (s->top==max-1);
 }
 void peek(struct stack* s){
-    printf("%c is top\n", s->entry[s->top]);
+    printf("%d is top\n", s->entry[s->top]);
 }
 
 void display(struct stack *s){
     for(int i=0; i<=(s->top); i++){
-        printf("%c ", s->entry[i]);
+        printf("%d ", s->entry[i]);
     }
 }
 
 
-void push(char c, struct stack *s){
+void push(int c, struct stack *s){
     if(IsStackFull(&s))
         printf("stack is full\n");
     else{
@@ -39,14 +39,14 @@ void pop(struct stack* s){
     if(IsStackEmpty(&s))
         printf("stack is empty\n");
     else{
-        printf("\n%c is out\n", s->entry[s->top]);
+        printf("\n%d is out\n", s->entry[s->top]);
         s->top--;
     }
 }
 
 int main() {
     int option;
-    char num;
+    int num;
     createStack(&s);
 
     do{
@@ -55,8 +55,8 @@ int main() {
 
         switch(option){
     case 1:
-        printf("enter the word: ");
-        scanf("%c", &num);
+        printf("enter the num: ");
+        scanf("%d", &num);
         push(num, &s);
         break;
     case 2:
@@ -68,14 +68,19 @@ int main() {
     case 4:
         display(&s);
         break;
-
+    default:
+        printf("unknown input\n");
+        break;
         }
+
     }while(option!=5);
+
 
     printf("\nyou are exit");
 
 
     return 0;
+
 }
 
 
