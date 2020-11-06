@@ -1,2 +1,2 @@
 # SEgragons
-hey
+we are SEgragons
