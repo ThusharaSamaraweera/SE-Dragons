@@ -24,6 +24,7 @@ void display(struct stack *s){
     for(int i=0; i<=(s->top); i++){
         printf("%d ", s->entry[i]);
     }
+    printf("\n");
 }
 
 
