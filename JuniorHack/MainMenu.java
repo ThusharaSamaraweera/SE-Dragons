@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class MainMenu {
+
+	private static Scanner scanner = new Scanner(System.in);
+
+	private static Methods methods = new Methods("Static");
 	public static void main(String[] args) {
         int choice;
         Scanner input = new Scanner(System.in);
@@ -23,25 +27,30 @@ public class MainMenu {
 
             switch(choice){
                 case 1:
-                    Methods.display();
+                    display();
                     break;
                 case 2:
                     addContact();
                     break;
                 case 3:
-                    deleteContact()
+                    deleteContact();
                     break;
                 case 4:
-                    editContact()
+                    editContact();
                     break;
-                case 5:
-		    read();
+				case 5:
+					read();
                     break;
-                case 6:
+				case 6:
+					saveContact(); 
                     break;
             }
         }while(choice!=7);
-    }
+	}
+	
+	private static void display(){
+		methods.display();
+	}
 
     private static void addContact() {
 		System.out.println("Please enter name ");
@@ -50,21 +59,21 @@ public class MainMenu {
 		String phone = scanner.nextLine();
         Contact newContact = Contact.createContact(name, phone);
 
-        Methods.addContact(newContact);
+        methods.addContact(newContact);
     }
 
 
     private static void editContact() {
 		System.out.println("Please enter name of the contact that you want to change: ");
 		String name = scanner.nextLine();
-        Contact upContact = Methods.checkContact(name);
+        Contact upContact = methods.checkContact(name);
         
 		System.out.println("Please enter the new phone number");
 		String newNumber = scanner.nextLine();
 		
         Contact newContact = Contact.createContact(name, newNumber);
         
-        Methods.editContact(upContact, newContact);
+        methods.editContact(upContact, newContact);
 
     }
     
@@ -72,7 +81,7 @@ public class MainMenu {
     private static void deleteContact() {
 		System.out.println("Please enter name of the contact that you want to delete");
 		String name = scanner.nextLine();
-		Contact extContact = Methods.removeContact(name);
+		Contact extContact = methods.removeContact(name);
 	}
 
 	
@@ -90,7 +99,6 @@ public class MainMenu {
 		    }
    }
 	public static void read() {
-	 
 	 try {
 	      File myObj = new File("ContactList.txt");
 	      Scanner myReader = new Scanner(myObj);
@@ -105,7 +113,7 @@ public class MainMenu {
 	    }
  	}
 	
-   public static void  addContact(String name,String number){ 
+   public static void  addContact(String name,String number){
 	 try {
 	      FileWriter myWriter = new FileWriter("ContactList.txt");
 	      myWriter.write(name+number);
