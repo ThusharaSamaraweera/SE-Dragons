@@ -31,7 +31,6 @@ public class MainMenu {
                 case 6:
                     break;
             }
-
         }while(a!=7);
     }
 }
