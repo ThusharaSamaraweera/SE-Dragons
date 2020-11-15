@@ -1,19 +1,35 @@
 package SEgragons.JuniorHack;
+import java.util.ArrayList;
 
 public class Contact {
-    String name;
-    String phoneNo;
+    private String name;
+    private String phoneNo;
 
-    public void setName(String name){
-        this.name = name;
+    public Contact(String name, String phoneNo) {
+		this.name = name;
+		this.phoneNo = phoneNo;
     }
-    public void setPhoneNo(String phoneNo){
-        this.phoneNo = phoneNo;
+    
+    public static Contact createContact(String name, String phoneNo){
+        return new Contact(name, phoneNo);
     }
-    public void getName(){
-        this.name = name;
+
+    public String getName(){
+        return this.name;
     }
-    public void getPhoneNo(){
-        this.phoneNo = phoneNo;
+
+    public String getPhoneNo(){
+        return this.phoneNo;
     }
+
+    ArrayList<String> ContactList = new ArrayList<String>();
+
+    public ArrayList<String> getList() {
+		return ContactList;
+	}
+ 
+	public void storeContacts(String names) {
+		ContactList.add(names);
+	}
+	
 }
