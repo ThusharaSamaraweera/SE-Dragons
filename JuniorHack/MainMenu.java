@@ -97,7 +97,7 @@ public class MainMenu {
 			    read();
                     break;
                 case 6:
-			    addContact();    
+			    addContact(); // SaveContact is also in inside of add contact method   
                     break;
             }
         }while(a!=7);
