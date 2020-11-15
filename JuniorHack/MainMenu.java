@@ -35,11 +35,12 @@ public class MainMenu {
                     editContact()
                     break;
                 case 5:
+		    read();
                     break;
                 case 6:
                     break;
             }
-        }while(a!=7);
+        }while(choice!=7);
     }
 
     private static void addContact() {
@@ -104,16 +105,7 @@ public class MainMenu {
 	    }
  	}
 	
-   public static void  addContact(String name,String number){
-	
-	 System.out.println("Enter name");
-	 Scanner add = new Scanner(System.in);
-	 name = add.nextLine();
-	
-	 System.out.println("Enter number");
-	 number = add.nextLine();
-	 add.close();
-	 
+   public static void  addContact(String name,String number){ 
 	 try {
 	      FileWriter myWriter = new FileWriter("ContactList.txt");
 	      myWriter.write(name+number);
